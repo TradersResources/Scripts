@@ -9,10 +9,10 @@ Database schema to use
 /* Insert into the Stocks Tables the stocks being tracked  in SQL Server  */
 
 
-USE [TradersResourcesW]
+USE [TTRCDevOne]
 GO
 
-INSERT INTO [dbo].[Category] 
+INSERT INTO [System].[Category] 
 			([Code]
            ,[Name]
            ,[Details])
@@ -20,7 +20,7 @@ INSERT INTO [dbo].[Category]
            
 GO
 
-INSERT INTO [dbo].[Stocks]
+INSERT INTO [Stocks].[Stocks]
            ([Symbol]
            ,[Name]
            ,[Category]
@@ -34,34 +34,37 @@ INSERT INTO [dbo].[Stocks]
 		   ('NFLX','Netflix','BSK', ' ', 'Basket part of the FAANNGS' ), 
 		   ('GOOGL','Google','BSK', '',  'Basket part of the FAANNGS'),
 		   ('SHOP','Shopify','BSK', '',  'Basket part of the FAANNGS'),
-		   ('TSLA','Tesla','BSK', ' ', 'Basket part of the Friends' ), 
-		   ('TTD','Trade Station','BSK', ' ', 'Basket part of the Friends' ), 
+		   ('TSLA','Tesla','BSK', ' ', 'Basket part of the Friends' ), 		   
 		   ('ROKU','ROKU','BSK', ' ', 'Basket part of the Friends' ), 
 		   ('FSLY','Fastly ','BSK', '',  'Basket part of the Friends'),
-		   ('BYND','Beyond Meat','BSK', ' ', 'Basket part of the Friends' ), 
-		   ('ETSY','ETSY','BSK', '',  'Basket part of the Friends'),
-		   ('W','Wayfair','BSK', ' ', 'Basket part of the Friends' ), 
-		   ('RUN','Sunrun','BSK', ' ', 'Basket part of the Fiends' ), 
-		   ('NIO','NIO','BSK', ' ', 'Basket part of the Fiends' ), 
-		   ('PLUG','PLUG','BSK', ' ', 'Basket part of the Fiends' ), 
-		   ('SEDG','SEDG','BSK', ' ', 'Basket part of the Fiends' ), 
-		   ('FDX','FedEx','BSK', ' ', 'Basket part of the Horizon' ), 
-		   ('ULTA','Ultra Beauty','BSK', ' ', 'Basket part of the Horizon' ), 
-		   ('GS','Goldman Sachs','BSK', ' ', 'Basket part of the Horizon' ), 
-		   ('COF','Capital One','BSK', ' ', 'Basket part of the Horizon' ), 
-		   ('COP','Conoco Petro','BSK', ' ', 'Basket part of the Horizon' ), 
-		   ('XOM','Exxon','BSK', ' ', 'Basket part of the Horizon' ), 
-		   ('RCL','Royal Carribean','BSK', ' ', 'Basket part of the Horizon' ), 
-		   ('LUV','Southwest Airlines','BSK', ' ', 'Basket part of the Horizon' ), 
-		   ('HD','Home Depot','BSK', ' ', 'Basket part of the Horizon' ), 
-		   ('BA','Boeing','BSK', ' ', 'Basket part of the Horizon' ), 
-		   ('CMG','Chiplote Grill','BSK', ' ', 'Basket part of the Horizon' ) 
-
+		   
+		   ('BYND','Beyond Meat','BSK', ' ', 'Basket part of the Fiends' ), 
+		   ('ETSY','ETSY','BSK', '',  'Basket part of the Fiends'),
+		   ('W','Wayfair','BSK', ' ', 'Basket part of the Fiends' ), 
+		   
+		   ('FDX','FedEx','BSK', ' ', 'Basket part of the Premium' ), 
+		   ('ULTA','Ultra Beauty','BSK', ' ', 'Basket part of the Premium' ), 
+		   ('GS','Goldman Sachs','BSK', ' ', 'Basket part of the Premium' ), 
+		   ('COF','Capital One','BSK', ' ', 'Basket part of the Premium' ), 
+		   ('COP','Conoco Petro','BSK', ' ', 'Basket part of the Premium' ), 
+		   ('XOM','Exxon','BSK', ' ', 'Basket part of the Premium' ), 	   		   
+		   
+		   ('SEDG','SEDG','BSK', ' ', 'Basket part of the Posers' ), 
+		   ('TTD','Trade Station','BSK', ' ', 'Basket part of the Posers' ), 
+		   ('HD','Trade Station','BSK', ' ', 'Basket part of the Posers' ),
+		    
+		   ('CMG','Chiplote Grill','BSK', ' ', 'Basket part of the We Track You Track' ),		   
+		   ('BA','Boeing','BSK', ' ', 'Basket part of the We Track You Track' ), 		   
+		   ('WYNN','Southwest Airlines','BSK', ' ', 'Basket part of the We Track You Track' ),
+		   ('ADBE','Southwest Airlines','BSK', ' ', 'Basket part of the We Track You Track' ),
+		   ('SQL','Royal Carribean','BSK', ' ', 'Basket part of the We Track You Track' ), 
+		   ('MDB','Southwest Airlines','BSK', ' ', 'Basket part of the We Track You Track' ), 		   
+		   ('RCL','Southwest Airlines','BSK', ' ', 'Basket part of the We Track You Track' ) 		   
 		   ;
 GO
 
 
-INSERT INTO [dbo].[Users]
+INSERT INTO [Users].[Users]
            ([FirstName]
            ,[LasttName]
            ,[UserLogin]
@@ -72,20 +75,20 @@ INSERT INTO [dbo].[Users]
 GO
 
 
-INSERT INTO [dbo].[ChartTypes]
+INSERT INTO [Charts].[Types]
            ([ChartsName]
            ,[ChartsInterval]
            ,[Details])
      VALUES
            ('Weekly','Weekly','Weekly Charts Interval'),
 		   ('Daily','Daily','Daily Charts Interval'),
-		   ('233 Minute','233 Minute','233 Minute Charts Interval can trade'),
-		   ('55 Minute','55 Minute','55 Minute Charts Interval can trade'),
-		   ('21 Minute','21 Minute','21 Minute Charts Interval smaller least')
+		   ('233 Minute','233 Minutes','233 Minute Charts Interval can trade'),
+		   ('55 Minute','55 Minutes','55 Minute Charts Interval can trade'),
+		   ('21 Minute','21 Minutes','21 Minute Charts Interval smaller least')
 		    ;
 GO
 
-INSERT INTO [dbo].[Brokers]
+INSERT INTO [Users].[Brokers]
            ([BrokersName]
            ,[SecurityType]
            ,[BrokersDescription]
@@ -102,7 +105,7 @@ INSERT INTO [dbo].[Brokers]
 		    ;
 GO
 
-INSERT INTO [dbo].[Accounts]
+INSERT INTO [Users].[Accounts]
            ([AccountName]
            ,[AccountDescription]
            ,[AccountPurpose]
