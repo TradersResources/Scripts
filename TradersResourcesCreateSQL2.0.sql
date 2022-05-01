@@ -1,41 +1,41 @@
 
-
 /*
 Master Schema 
 Database schema to use 
 */
 /* Delete Database Backup and Restore History from MSDB System Database */
+
+USE [master]
+
 IF EXISTS 
    (
      SELECT name FROM master.dbo.sysdatabases 
-    WHERE name =  N'TradersResourcesW'
+     WHERE name =  N'TTRCDevOne'
     )
-BEGIN
-    SELECT 'Database Name already Exist' AS Message
+   	SELECT 'Database Name already Exist' AS Message
 
-	EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'TradersResourcesW'
-/*GO
-*/
-/* Query to Get Exclusive Access of SQL Server Database before Dropping the Database  */
+BEGIN
+	EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'TTRCDevOne'	
+	SELECT 'Database will be dropped' AS Message
+END
 
 USE [master]
 /*GO */
-ALTER DATABASE [TradersResourcesW] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+
+DROP DATABASE [TTRCDevOne];
+SELECT 'Database dropped' AS Message
 
 
-/* Query to Drop Database in SQL Server  */
+CREATE DATABASE [TTRCDevOne];
 
-DROP DATABASE [TradersResourcesW]
 
-END
-
-CREATE DATABASE [TradersResourcesW]
-GO 
+  
+GO  
 
 
 
 
-USE [TradersResourcesW]
+USE [TTRCDevOne]
 GO 
 
 
@@ -52,7 +52,7 @@ GO
 /* THIS IS AN ESSENTIAL TABLES WILL BE SEEDED */
 
 IF OBJECT_ID('dbo.Stocks', 'U') IS NOT NULL 
-  DROP TABLE dbo.Stocks 
+  DROP TABLE stocks.Stocks 
 
 CREATE TABLE Stocks (
     StocksId int IDENTITY(1,1) PRIMARY KEY,
